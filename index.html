@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+
+    
+</head>
+<body>
+    <div class="content">
+       
+        <div id="screen">
+            <h1 class="title">Calculator</h1>
+            <div id="type"></div>
+            <div id="result"></div>
+        </div>
+            <div class="box">
+            <div class="line1">
+                <button class="E">E</button>
+                <button class="C">C</button>
+                <button class="mod">%</button>
+                <button class="add">+</button>
+            </div>
+            <div class="line1">
+                <button class="one">1</button>
+                <button class="two">2</button>
+                <button class="three">3</button>
+                <button class="divide">/</button>
+            </div>
+
+            <div class="line1">
+                <button class="four">4</button>
+                <button class="five">5</button>
+                <button class="six">6</button>
+                <button class="multiply">x</button>
+            </div>
+            <div class="line1">
+                <button class="seven">7</button>
+                <button class="eight">8</button>
+                <button class="nine">9</button>
+                <button class="minus" >-</button>
+            </div>
+            
+            <div class="line1">
+                <button class="dot">.</button>
+                <button class="zero">0</button>
+                <button class="square" >^</button>
+                <button class="equal">=</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var sqrt = document.querySelector(".square");
+        var btn_0 = document.querySelector(".zero");
+        var btn_1 = document.querySelector(".one");
+        var btn_2 = document.querySelector(".two");
+        var btn_3 = document.querySelector(".three");
+        var btn_4 = document.querySelector(".four");
+        var btn_5 = document.querySelector(".five");
+        var btn_6 = document.querySelector(".six");
+        var btn_7 = document.querySelector(".seven");
+        var btn_8 = document.querySelector(".eight");
+        var btn_9 = document.querySelector(".nine");
+        var point = document.querySelector(".dot");
+
+        var backspace = document.querySelector(".E");
+        var clear = document.querySelector(".C");
+        var plus = document.querySelector(".add");
+        var minus = document.querySelector(".minus");
+        var multi = document.querySelector(".multiply");
+        var division = document.querySelector(".divide");
+        var mod = document.querySelector(".mod");
+        var ans = document.querySelector(".equal");
+
+        var write_me = document.querySelector("#type");
+        var result = document.querySelector("#result");
+
+        var title = document.querySelector(".title");
+
+        var typeto = text => {
+            if (write_me.innerText == "") {
+                write_me.innerText = text;
+            }
+            else if (write_me.innerText.length <= 23) {
+                write_me.innerText += text;
+            }
+            else {
+                console.log("Limit reached");
+            }
+        }
+
+        var calculate = () => {
+            result.innerText = eval(write_me.innerText);
+            write_me.innerText = result.innerText;
+            result.innerText = "";
+        }
+
+        
+        sqrt.addEventListener("click", function() {
+            typeto("^");
+            title.classList.add("hidden");
+        })
+        btn_0.addEventListener("click" , function() {
+            typeto("0");
+            title.classList.add("hidden");
+        });
+                
+        btn_1.addEventListener("click", function () {
+            typeto("1");
+            title.classList.add("hidden");
+        });
+
+        btn_2.addEventListener("click", function () {
+            typeto("2");
+            title.classList.add("hidden");
+        });
+
+        btn_3.addEventListener("click", function () {
+            typeto("3");
+            title.classList.add("hidden");
+        });
+        btn_4.addEventListener("click", function () {
+            typeto("4");
+            title.classList.add("hidden");
+        });
+        btn_5.addEventListener("click", function () {
+            typeto("5");
+            title.classList.add("hidden");
+        });
+        btn_6.addEventListener("click", function () {
+            typeto("6");
+            title.classList.add("hidden");
+        });
+        btn_7.addEventListener("click", function () {
+            typeto("7");
+            title.classList.add("hidden");
+        });
+        btn_8.addEventListener("click", function () {
+            typeto("8");
+            title.classList.add("hidden");
+        });
+        btn_9.addEventListener("click", function () {
+            typeto("9");
+            title.classList.add("hidden");
+        });
+        point.addEventListener("click", function() {
+            typeto(".");
+            title.classList.add("hidden");
+        })
+        plus.addEventListener("click", function () {
+            typeto("+");
+            title.classList.add("hidden");
+        });
+        minus.addEventListener("click", function () {
+            typeto("-");
+            title.classList.add("hidden");
+        });
+        multi.addEventListener("click", function () {
+            typeto("*");
+            title.classList.add("hidden");
+        });
+        division.addEventListener("click", function () {
+            typeto("/");
+            title.classList.add("hidden");
+        });
+        mod.addEventListener("click", function() {
+            typeto("%");
+            title.classList.add("hidden");
+        });
+        clear.addEventListener("click", function() {
+            write_me.innerText = "";
+            result.innerText = "";
+            title.classList.remove("hidden");
+        });
+        backspace.addEventListener("click", function() {
+            write_me.innerText = write_me.innerText.slice(0, -1);
+        })
+        ans.addEventListener("click", function () {
+            calculate();
+        });
+
+        document.onkeyup = e => {
+            if(e.key == "0" || e.key == "Num0") {
+                typeto("0");
+                title.classList.add("hidden");
+
+            }
+            else if(e.key == "1" || e.key == "Num1") {
+                typeto("1");
+                title.classList.add("hidden");
+            }
+            else if(e.key == "2" || e.key == "Num2") {
+                typeto("2");
+                title.classList.add("hidden");
+            }
+            else if(e.key == "3" || e.key == "Num3") {
+                typeto("3");
+                title.classList.add("hidden");
+            }
+            else if(e.key == "4" || e.key == "Num4") {
+                typeto("4");
+                title.classList.add("hidden");
+            }
+            else if(e.key == "5" || e.key == "Num5") {
+                typeto("5");
+                title.classList.add("hidden");
+            }
+            else if(e.key == "6" || e.key == "Num6") {
+                typeto("6");
+                title.classList.add("hidden");
+            }
+            else if(e.key == "7" || e.key == "Num7") {
+                typeto("7");
+                title.classList.add("hidden");
+            }
+            else if(e.key == "8" || e.key == "Num8") {
+                typeto("8");
+                title.classList.add("hidden");
+            }
+            else if(e.key == "9" || e.key == "Num9") {
+                typeto("9");
+                title.classList.add("hidden");
+            }
+            else if(e.key == "+" || e.key == "Num+") {
+                typeto("+");
+                title.classList.add("hidden");
+            }
+            else if(e.key == "-" || e.key == "Num-") {
+                typeto("-");
+                title.classList.add("hidden");
+            }
+            else if(e.key == "*" || e.key == "Num*") {
+                typeto("*");
+                title.classList.add("hidden");
+            }
+            else if(e.key == "/" || e.key == "Num/") {
+                typeto("/");
+                title.classList.add("hidden");
+            }
+            else if(e.key == "%" || e.key == "Num%") {
+                typeto("%");
+                title.classList.add("hidden");
+            }
+            else if(e.key == "." || e.key == "Num.") {
+                typeto(".");
+                title.classList.add("hidden");
+            }
+            else if(e.key == "Delete") {
+                write_me.innerText = "";
+                result.innerText = "";
+                title.classList.remove("hidden");
+            }
+            else if(e.key == "Backspace" || e.key == "Escape") {
+            write_me.innerText = write_me.innerText.slice(0, -1);
+            }
+            else if(e.key == "Enter" || e.key == "Numenter") {
+                calculate();
+            }
+            
+        }
+    </script>
+</body>
+</html>
